@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sort</title>
+  <link rel="stylesheet" href="/styles.css">
+  <script type="module" src="/app.js"></script>
+</head>
+<body>
+  <main class="shell">
+    <header class="topbar">
+      <div class="brand"><span>Sort</span></div>
+      <div class="connection"><span class="status-dot" id="status-dot"></span><span id="connection-status">Connecting to Python</span></div>
+    </header>
+
+    <section class="intro">
+      <p class="lede">Generate a dataset, choose a method, and watch your Python sorting engine take it apart.</p>
+    </section>
+
+    <section class="workspace">
+      <div class="control-panel">
+        <div class="panel-heading"><span>01</span><h2>Build a dataset</h2></div>
+        <div class="field-grid">
+          <label>Minimum<input id="min-input" type="number" value="0"></label>
+          <label>Maximum<input id="max-input" type="number" value="100"></label>
+          <label class="wide">How many values<input id="size-input" type="number" min="1" max="1000" value="16"></label>
+        </div>
+        <button class="button button-dark" id="generate-button">Generate random values <span>↗</span></button>
+
+        <div class="divider"></div>
+        <div class="panel-heading"><span>02</span><h2>Add a value</h2></div>
+        <div class="add-row"><input id="value-input" type="number" placeholder="e.g. 42"><button class="button button-light" id="add-button">Add value <span>+</span></button></div>
+        <button class="clear-button" id="clear-button">Clear dataset <span>⌫</span></button>
+      </div>
+
+      <div class="data-panel">
+        <div class="data-header"><div><p class="eyebrow" id="graph-label">Input order</p><h2 id="count-label">0 values</h2></div><div class="data-summary" id="summary">Waiting for data</div></div>
+        <div class="bars" id="bars" aria-live="polite"><div class="empty-state">Generate or add values<br><span>Your dataset will appear here.</span></div></div>
+        <div class="sort-strip"><label for="algorithm-select">Sort with</label><select id="algorithm-select"><option value="bubble">Bubble sort</option><option value="quick">Quick sort</option><option value="insertion">Insertion sort</option><option value="selection">Selection sort</option></select><button class="sort-button" id="sort-button">Run sort <span>→</span></button></div>
+        <p class="message" id="message">Ready when you are.</p>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
