@@ -13,7 +13,7 @@ class sortowanie:
         self.data.append(item)
 
     def clear(self): 
-        self.data = []
+        self.data = [] 
 
     # 1 bubble sort
     def bubble_sort(self, data=None):
