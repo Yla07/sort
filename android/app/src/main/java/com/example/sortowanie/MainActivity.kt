@@ -18,7 +18,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.layout.weight
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -130,7 +129,7 @@ private fun SortScreen() {
             onSort = {
                 data = when (algorithm) {
                     "Bubble sort" -> bubbleSort(data)
-                    "Quick sort" -> data.sorted()
+                    "Quick sort" -> quickSort(data)
                     "Insertion sort" -> insertionSort(data)
                     else -> selectionSort(data)
                 }
@@ -244,38 +243,6 @@ private fun DataPanel(
         }
         Text(message, color = Muted, fontFamily = FontFamily.Monospace, fontSize = 11.sp)
     }
-}
-
-private fun bubbleSort(input: List<Int>): List<Int> {
-    val result = input.toMutableList()
-    for (end in result.lastIndex downTo 1) for (index in 0 until end) if (result[index] > result[index + 1]) {
-        val temp = result[index]
-        result[index] = result[index + 1]
-        result[index + 1] = temp
-    }
-    return result
-}
-
-private fun insertionSort(input: List<Int>): List<Int> {
-    val result = input.toMutableList()
-    for (index in 1 until result.size) {
-        val key = result[index]
-        var position = index - 1
-        while (position >= 0 && result[position] > key) { result[position + 1] = result[position]; position-- }
-        result[position + 1] = key
-    }
-    return result
-}
-
-private fun selectionSort(input: List<Int>): List<Int> {
-    val result = input.toMutableList()
-    for (index in result.indices) {
-        val minimumIndex = (index until result.size).minByOrNull { result[it] } ?: index
-        val temp = result[index]
-        result[index] = result[minimumIndex]
-        result[minimumIndex] = temp
-    }
-    return result
 }
 
 @Preview(showBackground = true)

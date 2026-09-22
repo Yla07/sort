@@ -1,8 +1,6 @@
-# Sortowanie 
+# Sort
 
-## CLI
+Project documentation:
 
-
-## GUI (desktop)
-
-## GUI (WEB)
+- [English documentation](README.en.md)
+- [Dokumentacja po polsku](README.pl.md)
